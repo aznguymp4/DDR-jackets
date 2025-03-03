@@ -3,17 +3,17 @@ const { createCanvas, Image } = require('canvas')
 const webp = require('webp-wasm')
 
 const JACKETS_PATH = "../jacket"
-const jackets = fs.readdirSync(JACKETS_PATH).filter(j=>/(?<!c_.{1,})\.(png|jpg|jpeg|dds)$/.test(j)) // Fitler out courses and any non-image files (such as .DS_Store)
+const jackets = fs.readdirSync(JACKETS_PATH).filter(j=>!j.startsWith('c_') && /\.(png|jpg|jpeg|dds)$/.test(j)) // Fitler out courses and any non-image files (such as .DS_Store)
 const GAP = 0
 const JACKET_SIZE = 80
 const WEBP_QUALITY = 30 // quality percentage; int from 0-100
 const SIZEwGAP = (JACKET_SIZE+GAP)
-const SPRITESHEET_WIDTH = SIZEwGAP*Math.ceil(Math.sqrt(jackets.length))
+const SPRITESHEET_WIDTH = SIZEwGAP*64
 
-const cvs = createCanvas(SPRITESHEET_WIDTH, SPRITESHEET_WIDTH)
+const cvs = createCanvas(SPRITESHEET_WIDTH, SPRITESHEET_WIDTH*2)
 const ctx = cvs.getContext('2d')
 ctx.fillStyle = '#000'
-ctx.fillRect(0,0,SPRITESHEET_WIDTH,SPRITESHEET_WIDTH)
+ctx.fillRect(0,0,SPRITESHEET_WIDTH,SPRITESHEET_WIDTH*2)
 
 const coords = {}
 let loaded = 0
