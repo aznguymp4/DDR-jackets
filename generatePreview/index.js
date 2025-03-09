@@ -5,10 +5,10 @@ const webp = require('webp-wasm')
 const JACKETS_PATH = "../jacket"
 const jackets = fs.readdirSync(JACKETS_PATH).filter(j=>!j.startsWith('c_') && /\.(png|jpg|jpeg|dds)$/.test(j)) // Fitler out courses and any non-image files (such as .DS_Store)
 const GAP = 0
-const JACKET_SIZE = 80
-const WEBP_QUALITY = 30 // quality percentage; int from 0-100
+const JACKET_SIZE = 115
+// const WEBP_QUALITY = 100 // quality percentage; int from 0-100
 const SIZEwGAP = (JACKET_SIZE+GAP)
-const SPRITESHEET_WIDTH = SIZEwGAP*64
+const SPRITESHEET_WIDTH = SIZEwGAP*50
 
 const cvs = createCanvas(SPRITESHEET_WIDTH, SPRITESHEET_WIDTH*2)
 const ctx = cvs.getContext('2d')
@@ -37,17 +37,19 @@ jackets.map((jacketFileName, idx) => {
       ctx2.drawImage(cvs,0,0)
       const imgData = ctx2.getImageData(0,0,SPRITESHEET_WIDTH,SPRITESHEET_HEIGHT)
 
-      console.log(`Saving .webp (at ${WEBP_QUALITY}% image quality...)`)
-      fs.writeFileSync('./coordinates.json', JSON.stringify(coords))
-
-      webp.encode(imgData, {
-        quality: WEBP_QUALITY
-      }).then(webpBuffer => {
-        fs.writeFileSync('./previewSprite.webp', Buffer.from(webpBuffer))
-        console.log(`Saved .webp successfully`)
-      }).catch(e => {
-        console.error(`Error saving .webp (${e})`)
-      })
+      for(let WEBP_QUALITY=0;WEBP_QUALITY<=100;WEBP_QUALITY+=25) {
+        console.log(`Saving .webp (at ${WEBP_QUALITY}% image quality...)`)
+        fs.writeFileSync('./coordinates.json', JSON.stringify(coords))
+  
+        webp.encode(imgData, {
+          quality: WEBP_QUALITY
+        }).then(webpBuffer => {
+          fs.writeFileSync(`./previewSprite${WEBP_QUALITY}.webp`, Buffer.from(webpBuffer))
+          console.log(`Saved .webp (${WEBP_QUALITY}%) successfully`)
+        }).catch(e => {
+          console.error(`Error saving .webp (${e})`)
+        })
+      }
     }
   }
   img.src = `${JACKETS_PATH}/${jacketFileName}`
