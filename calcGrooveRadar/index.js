@@ -8,6 +8,7 @@ const { SSQparser, getNoteColorValue, measureArrToNumFormat } = require('./class
 const { readdirSync, readFile, writeFileSync } = require('fs')
 const { join } = require('path')
 const arrFindObj = (arr,key,val) => arr.find(x=>x[key]===val)
+const getBasenameFromFilename = fileName => fileName.match(/[a-z0-9]{4,5}/)[0]
 
 const difficulties = {
 	bSP: 0x0414, // Single - Beginner
@@ -33,11 +34,11 @@ class RadarData {
 		const str = [ this._STREAM,this._VOLTAGE,this._AIR,this._FREEZE,this._CHAOS ].join(' ')
 		return str==='0 0 0 0 0'?'':str
 	}
-	/** @param {int} val */ set STREAM(val)  {this._STREAM = val}
-	/** @param {int} val */ set VOLTAGE(val) {this._VOLTAGE = val}
-	/** @param {int} val */ set AIR(val)     {this._AIR = val}
-	/** @param {int} val */ set FREEZE(val)  {this._FREEZE = val}
-	/** @param {int} val */ set CHAOS(val)   {this._CHAOS = val}
+	/** @param {int} val */ set STREAM(val)  {this._STREAM = val}  get STREAM()  {return this._STREAM}
+	/** @param {int} val */ set VOLTAGE(val) {this._VOLTAGE = val} get VOLTAGE() {return this._VOLTAGE}
+	/** @param {int} val */ set AIR(val)     {this._AIR = val}     get AIR()     {return this._AIR}
+	/** @param {int} val */ set FREEZE(val)  {this._FREEZE = val}  get FREEZE()  {return this._FREEZE}
+	/** @param {int} val */ set CHAOS(val)   {this._CHAOS = val}   get CHAOS()   {return this._CHAOS}
 }
 
 class SongRadars {
@@ -70,16 +71,11 @@ class SongRadars {
 	get ESP() {return this._ESP} get EDP() {return this._EDP}
 	get CSP() {return this._CSP} get CDP() {return this._CDP}
 
-	/** @param {RadarData} bn */ set bSP(rd) {this._bSP = rd}
-	/** @param {RadarData} bn */ set BSP(rd) {this._BSP = rd}
-	/** @param {RadarData} bn */ set DSP(rd) {this._DSP = rd}
-	/** @param {RadarData} bn */ set ESP(rd) {this._ESP = rd}
-	/** @param {RadarData} bn */ set CSP(rd) {this._CSP = rd}
-	/** @param {RadarData} bn */ set bDP(rd) {this._bDP = rd}
-	/** @param {RadarData} bn */ set BDP(rd) {this._BDP = rd}
-	/** @param {RadarData} bn */ set DDP(rd) {this._DDP = rd}
-	/** @param {RadarData} bn */ set EDP(rd) {this._EDP = rd}
-	/** @param {RadarData} bn */ set CDP(rd) {this._CDP = rd}
+	/** @param {RadarData} bn */ set bSP(rd) {this._bSP = rd} /** @param {RadarData} bn */ set bDP(rd) {this._bDP = rd}
+	/** @param {RadarData} bn */ set BSP(rd) {this._BSP = rd} /** @param {RadarData} bn */ set BDP(rd) {this._BDP = rd}
+	/** @param {RadarData} bn */ set DSP(rd) {this._DSP = rd} /** @param {RadarData} bn */ set DDP(rd) {this._DDP = rd}
+	/** @param {RadarData} bn */ set ESP(rd) {this._ESP = rd} /** @param {RadarData} bn */ set EDP(rd) {this._EDP = rd}
+	/** @param {RadarData} bn */ set CSP(rd) {this._CSP = rd} /** @param {RadarData} bn */ set CDP(rd) {this._CDP = rd}
 }
 
 const ssqDir = 'D:/Games/BEMANI/DDR/GitDDR/game_files/contents/data/mdb_apx/ssq'
@@ -91,14 +87,11 @@ const files = readdirSync(ssqDir).filter(f=>f.endsWith('.ssq')).sort((a,b) => a.
 
 let ssqParseCt = 0
 files.map(fileName => {
-	const basename = fileName.match(/[a-z0-9]{4,5}/)[0]
+	const basename = getBasenameFromFilename(fileName)
 	SONGS[basename] = new SongRadars(basename)
 })
 files.map(fileName => {
-	// if(/* fileName!=='sota.ssq' && */ fileName!=='acef.ssq' /* && fileName!=='isht.ssq' */) return
-
-	const basename = fileName.match(/[a-z0-9]{4,5}/)[0]
-	// if(basename !== 'acef') return
+	const basename = getBasenameFromFilename(fileName)
 	const songRadars = SONGS[basename]
 
 	// Start reading SSQ data
@@ -127,7 +120,7 @@ files.map(fileName => {
 			const noteArr = noteEvents.events.sort((a,b)=>a.timestamp-b.timestamp)
 			const radarData = songRadars[difficulty]
 
-			/********** STREAM **********/ // Accuracy: 99% ... Peak Step Density calculation isn't always right
+			/********** STREAM **********/ // Accuracy: 99% ... Peak Step Density calculation isn't always right, but reported value is usually off by ±3 which is good enough.
 			const avgStepDensity = Math.floor((60 * (stats.steps + stats.shocks)) / songLengthSec)
 			radarData.STREAM = Math.floor(
 				avgStepDensity <= 300
@@ -137,19 +130,28 @@ files.map(fileName => {
 					: (avgStepDensity - 183) * 100 / 117
 			)
 			
-			/********** VOLTAGE **********/ // Accuracy: 90% ... Peak Density calculation isn't always right
+			/********** VOLTAGE **********/ // Accuracy: 95% ... Peak Density calculation isn't always right
 			const avgBPM = 60 * songLengthBeats / songLengthSec
 			let peakDensity = 0; // Most notes in 4 consecutive beats (including shocks)
-			for(let i=0;i<Math.round(songLengthBeats+4);i++) {
-				const fromMeasure = i/4
-				const toMeasure = (i+4)/4
-				peakDensity = Math.max(peakDensity, 
-					noteArr.filter(noteEvent => {
-						const measure = measureArrToNumFormat(noteEvent.measure)
+
+			const uniqueTimestamps = Array.from(new Set(noteArr.map(e=>e.timestamp))).sort((a,b)=>a-b)
+			timestampIterate: for (let idx = 0; idx < uniqueTimestamps.length; idx++) {
+				const timestamp = uniqueTimestamps[idx]
+				// Sometimes two noteEvents have the same timestamp
+				// (when two freeze arrows end at the same time,
+				// or when one side has Shock Arrows and the other side has regular notes on Doubles)
+				const noteEvent = noteArr.find(n=>n.timestamp === timestamp && !n.extra?.includes('freezeEnd'))
+				if(!noteEvent) continue timestampIterate;
+				const fromMeasure = measureArrToNumFormat(noteEvent.measure)
+				const toMeasure = fromMeasure+1
+				
+				peakDensity = Math.max(peakDensity,
+					noteArr.filter(ne => {
+						const measure = measureArrToNumFormat(ne.measure)
 						return fromMeasure <= measure && measure < toMeasure
 					})
-					.map(noteEvent => {
-						return noteEvent.extra?.includes('freezeEnd')? 0 : noteEvent.notes.length
+					.map(ne => {
+						return ne.extra?.includes('freezeEnd')? 0 : ne.notes.length
 					})
 					.reduce((a,b)=>a+b,0)
 				)
@@ -161,7 +163,7 @@ files.map(fileName => {
 				? avgPeakDensity / 6
 				: ((avgPeakDensity+594)*100) / 1194
 			)
-			
+
 			/********** AIR **********/ // Accuracy: 99%
 			const avgAirDensity = Math.floor(60 * (stats.jumps + stats.shocks) / songLengthSec)
 			radarData.AIR = Math.floor(
@@ -182,40 +184,51 @@ files.map(fileName => {
 					: ((avgFreezeRate + 2246) * 100) / 5746
 			)
 
-			/********** CHAOS **********/ // Accuracy: 75% ... still need to work on this one...
-			const uniqueTimestamps = Array.from(new Set(noteArr.map(e=>e.timestamp))).sort((a,b)=>a-b)
+			/********** CHAOS **********/ // Accuracy: 90% ... calculation is sometimes perfect, and sometimes not
 			const chaosBases = []
 			for (let idx = 0; idx < uniqueTimestamps.length; idx++) {
-				if(!idx) {chaosBases.push(0); continue} // The first note's Chaos Base Value is always 0 regardless of its color.
+				if(!idx) continue // The first note's Chaos Base Value is always 0 regardless of its color.
 				const timestamp = uniqueTimestamps[idx]
 				// Sometimes two noteEvents have the same timestamp
 				// (when two freeze arrows end at the same time,
 				// or when one side has Shock Arrows and the other side has regular notes on Doubles)
-				const noteEvents = noteArr.filter(n=>n.timestamp === timestamp)
+				const noteEvents = noteArr.filter(n=>n.timestamp === timestamp && !n.extra?.includes('freezeEnd'))
+				if(!noteEvents[0]) continue
 				const quantization = noteEvents[0].nthNote
+				if(quantization === 4) continue;
 				const noteColorValue = getNoteColorValue(quantization)
 				const prevTimestamp = uniqueTimestamps[idx-1]
 				const prevNoteEvents = noteArr.filter(n=>n.timestamp === prevTimestamp)
-				// const intervalFromLastNote = Math.abs((measureArrToNumFormat(prevNoteEvents[0].measure) - measureArrToNumFormat(noteEvents[0].measure)) * prevNoteEvents[0].nthNote)
-				const intervalFromLastNote = Math.abs((measureArrToNumFormat(prevNoteEvents[0].measure) - measureArrToNumFormat(noteEvents[0].measure)) * noteEvents[0].nthNote)
+				const intervalFromLastNote = (measureArrToNumFormat(noteEvents[0].measure) - measureArrToNumFormat(prevNoteEvents[0].measure)) * quantization
 				const arrowCount = (noteEvents.map(noteEvent => noteEvent.notes.map(n=>n==='FULL SHOCK'?8:n.includes('SHOCK')?4:1))).flat().reduce((a,b)=>a+b,0)
 
-				if(noteColorValue) chaosBases.push((quantization / intervalFromLastNote) * noteColorValue * arrowCount)
+				chaosBases.push((quantization / intervalFromLastNote) * noteColorValue * arrowCount)
 			}
 			const totalChaosBaseValue = chaosBases.reduce((a,b)=>a+b,0)
 
 			let totalBpmDelta = 0;
 			let lastBpm
-			tempoIterate: for (const tempoEvent of tempoData.events.filter(e=>e.bpm!==0)) {
+
+			tempoIterate: for (const tempoEvent of tempoData.events) {
+				if(isNaN(tempoEvent.bpm) || !isFinite(tempoEvent.bpm) || tempoEvent.bpm===null) continue tempoIterate
 				if(lastBpm === undefined) {
 					lastBpm = tempoEvent.bpm
 					totalBpmDelta += lastBpm
-					continue tempoIterate;
+					continue tempoIterate
 				}
-				const bpmDelta = Math.abs(lastBpm - tempoEvent.bpm)
-				totalBpmDelta += bpmDelta
+				const [lowerBpm,higherBpm] = [Math.min(lastBpm,tempoEvent.bpm),Math.max(lastBpm,tempoEvent.bpm)]
+				const changeFactor = higherBpm/lowerBpm
+				// e.g.
+				// 180/90  = 2.0   (the drasticness of the bpm change was ±100%; very noticable)
+				// 180/120 = 1.50  (the drasticness of the bpm change was ±50%; somewhat noticable)
+				// 180/170 ≈ 1.059 (the drasticness of the bpm change was ±5.9%; not easily noticable)
+
+				if(changeFactor > 1.5) {
+					totalBpmDelta += lastBpm
+				}
 				lastBpm = tempoEvent.bpm
 			}
+			totalBpmDelta += (tempoData.events.slice(-1)[0].bpm/2)
 
 			const avgBPMdelta = (60 * totalBpmDelta) / songLengthSec
 			const chaosDegree = totalChaosBaseValue * (1 + (avgBPMdelta / 1500))
@@ -227,7 +240,7 @@ files.map(fileName => {
 					? (unitChaosDegree + 21605) * 100 / 23605
 					: (unitChaosDegree + 16628) * 100 / 18628
 			)
-
+			
 			songRadars[difficulty] = radarData
 			SONGS[basename] = songRadars
 			// console.log(songRadars, fileName)
@@ -240,8 +253,6 @@ files.map(fileName => {
 		SONGS[basename] = songRadars
 		if(ssqParseCt === files.length) { // Reached end of array (doing this in case of async reading issues)
 			for (const basename in SONGS) {
-				const songRadars = SONGS[basename]
-				// console.log(songRadars)
 				csvExportStr.push(SONGS[basename].toStr())
 			}
 
