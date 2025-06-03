@@ -57,7 +57,7 @@ class SongRadars {
 			Math.round(this._songLengthMs),
 			this._bSP.toStr(),this._BSP.toStr(),this._DSP.toStr(),this._ESP.toStr(),this._CSP.toStr(),
 			this._bDP.toStr(),this._BDP.toStr(),this._DDP.toStr(),this._EDP.toStr(),this._CDP.toStr()
-		].join(',').replace(/Infinity/g,'0')
+		].join(',').replace(/(Infinity|NaN)/g,'0')
 	}
 
 	/** @param {int} ms */ set songLengthMs(ms) {this._songLengthMs = ms}
