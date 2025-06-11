@@ -29,16 +29,18 @@ class RadarData {
 		this._AIR = 0
 		this._FREEZE = 0
 		this._CHAOS = 0
+		this._customStatSHOCK = 0
 	}
 	toStr() {
-		const str = [ this._STREAM,this._VOLTAGE,this._AIR,this._FREEZE,this._CHAOS ].join(' ')
-		return str==='0 0 0 0 0'?'':str
+		const str = [ this._STREAM,this._VOLTAGE,this._AIR,this._FREEZE,this._CHAOS,this._customStatSHOCK ].join(' ')
+		return str==='0 0 0 0 0 0'?'':str
 	}
-	/** @param {int} val */ set STREAM(val)  {this._STREAM = val}  get STREAM()  {return this._STREAM}
-	/** @param {int} val */ set VOLTAGE(val) {this._VOLTAGE = val} get VOLTAGE() {return this._VOLTAGE}
-	/** @param {int} val */ set AIR(val)     {this._AIR = val}     get AIR()     {return this._AIR}
-	/** @param {int} val */ set FREEZE(val)  {this._FREEZE = val}  get FREEZE()  {return this._FREEZE}
-	/** @param {int} val */ set CHAOS(val)   {this._CHAOS = val}   get CHAOS()   {return this._CHAOS}
+	/** @param {int} val */ set STREAM(val)  {this._STREAM = val}          get STREAM()  {return this._STREAM}
+	/** @param {int} val */ set VOLTAGE(val) {this._VOLTAGE = val}         get VOLTAGE() {return this._VOLTAGE}
+	/** @param {int} val */ set AIR(val)     {this._AIR = val}             get AIR()     {return this._AIR}
+	/** @param {int} val */ set FREEZE(val)  {this._FREEZE = val}          get FREEZE()  {return this._FREEZE}
+	/** @param {int} val */ set CHAOS(val)   {this._CHAOS = val}           get CHAOS()   {return this._CHAOS}
+	/** @param {int} val */ set SHOCK(val)   {this._customStatSHOCK = val} get SHOCK()   {return this._customStatSHOCK}
 }
 
 class SongRadars {
@@ -103,7 +105,10 @@ files.map(fileName => {
 		const tempoData = arrFindObj(SSQjson,'type','tempo').events
 		const eventData = arrFindObj(SSQjson,'type','events').events
 
-		songRadars.songLengthMs = arrFindObj(eventData,'event','end').timestamp - arrFindObj(eventData,'event','start').timestamp
+		songRadars.songLengthMs = Math.max(
+			songRadars.songLengthMs,
+			arrFindObj(eventData,'event','end').timestamp - arrFindObj(eventData,'event','start').timestamp
+		)
 
 		const songLengthSec = songRadars.songLengthMs/1000
 		const songLengthMeasures = (
@@ -166,6 +171,7 @@ files.map(fileName => {
 
 			/********** AIR **********/ // Accuracy: 99%
 			const avgAirDensity = Math.floor(60 * (stats.jumps + stats.shocks) / songLengthSec)
+			radarData.SHOCK = stats.shocks+0
 			radarData.AIR = Math.floor(
 				avgAirDensity <= 55
 				? avgAirDensity * 20 / 11

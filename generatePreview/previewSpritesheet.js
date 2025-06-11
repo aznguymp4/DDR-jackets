@@ -3,7 +3,7 @@ const { createCanvas, Image } = require('canvas')
 const webp = require('webp-wasm')
 
 const JACKETS_PATH = "../jacket"
-const jackets = fs.readdirSync(JACKETS_PATH).filter(j=>!j.startsWith('c_') && /\.(png|jpg|jpeg|dds)$/.test(j)) // Fitler out courses and any non-image files (such as .DS_Store)
+const jackets = fs.readdirSync(JACKETS_PATH).filter(j=>!j.startsWith('c_') && /\.(png|jpg|jpeg|dds)$/.test(j)) // Filter out courses and any non-image files (such as .DS_Store)
 const GAP = 0
 const JACKET_SIZE = 115
 // const WEBP_QUALITY = 100 // quality percentage; int from 0-100
