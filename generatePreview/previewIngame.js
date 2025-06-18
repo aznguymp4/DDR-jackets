@@ -91,7 +91,6 @@ const shockIcon = new Image()
 shockIcon.onload = () => {
 	let generated = 0
 	jackets
-	.filter(j=>j.startsWith('thnk'))
 	// .filter(j=>splitBPMdata[j.split('_jk')[0]])
 	// .filter(j=>translatedTitles[j.split('_jk')[0]])
 	// .filter(j=>translatedTitles[j.split('_jk')[0]]?.romanized_name?.length > 28)
