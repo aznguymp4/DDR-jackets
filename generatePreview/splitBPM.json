@@ -7,5 +7,8 @@
   "kanb" : [     null ,    null ,    null ,    null ,[100,400] ],
   "acef" : [     null ,    null ,[100,200],[ 50,400],[ 50,400] ],
   "lien" : [     null ,    null ,    null ,    null ,[100,200] ],
-  "rabb" : [     null ,    null ,    null ,[ 86,173],     null ]
+  "rabb" : [     null ,    null ,    null ,[ 86,173],     null ],
+  "mega" : [     null ,    null ,[120,240],[120,240],[120,240] ],
+  "mons" : [     null ,    null ,[ 80,160],[ 80,160],[ 80,160] ],
+  "sabm" : [     null ,    null ,[100,400],[100,400],[100,400] ]
 }
