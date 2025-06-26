@@ -2768,5 +2768,17 @@
   "ztrd": {
     "song_name": "絶対零度",
     "translated_name": "Absolute Zero (°K)"
+  },
+  "syou": {
+    "song_name": "唱",
+    "translated_name": "Show"
+  },
+  "yush": {
+    "song_name": "勇者",
+    "translated_name": "Yuusha(Hero)"
+  },
+  "tosu": {
+    "song_name": "トラウマ催眠少女さとり！",
+    "translated_name": "Trauma Hypnosis Girl Satori!"
   }
 }
