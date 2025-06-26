@@ -30,6 +30,11 @@ const diffColors = {
 	DIF:'#ff384f',
 	EXP:'#39ec28',
 	CHA:'#e900ff',
+	BEGpastel:'#8CD8FF',
+	BASpastel:'#FFEB7F',
+	DIFpastel:'#FF8C9B',
+	EXPpastel:'#9AFF8E',
+	CHApastel:'#F38CFF',
 }
 diffColors.bSP = diffColors.BEG
 diffColors.BSP = diffColors.BAS
@@ -166,7 +171,7 @@ shockIcon.onload = () => {
 
 				Object.keys(uniqueDisplayBPMs).map((dispBPM,idx) => {
 					const diffs = uniqueDisplayBPMs[dispBPM]
-					ctx.font = 'bold 12px Sans'
+					ctx.font = 'bold 9.5px Sans'
 					const columnWidth = 195/(uniqueTruthyDisplayBPMs+1)
 					const xPos = 14+(columnWidth*(idx+1))
 					// ctx.fillText(diffs.join(','), xPos, 205, columnWidth-1)
@@ -174,15 +179,16 @@ shockIcon.onload = () => {
 					// 	text: diff,
 					// 	fillStyle: diffColors[diff]
 					// })), xPos, 205)
-					drawMultiColorTextCentered(ctx, diffs.map(diff => ({text:diff,fillStyle:diffColors[diff]})), xPos, 202, columnWidth-4)
+					drawMultiColorTextCentered(ctx, diffs.map(diff => ({text:diff,fillStyle:diffColors[diff]})), xPos, 200, columnWidth-4)
 
-					ctx.font = 'bold 11px Sans'
+					ctx.font = 'bold 16px Sans'
 					if(diffs.length === 1) {
-						ctx.fillStyle = diffColors[diffs[0]]
+						ctx.fillStyle = diffColors[`${diffs[0]}pastel`]
 					} else {
-						const gradient = ctx.createLinearGradient(xPos-(columnWidth/2),206,xPos+(columnWidth/2),214)
+						// const gradient = ctx.createLinearGradient(xPos-(columnWidth/2),206,xPos+(columnWidth/2),214)
+						const gradient = ctx.createLinearGradient(xPos-(columnWidth/2),203,xPos-(columnWidth/2),213)
 						diffs.map((diff,idx) => {
-							gradient.addColorStop(idx/(diffs.length-1), diffColors[diff])
+							gradient.addColorStop(idx/(diffs.length-1), diffColors[`${diff}pastel`])
 						})
 						ctx.fillStyle = gradient
 					}
