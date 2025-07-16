@@ -2780,5 +2780,17 @@
   "tosu": {
     "song_name": "トラウマ催眠少女さとり！",
     "translated_name": "Trauma Hypnosis Girl Satori!"
+  },
+  "aoba": {
+    "song_name": "あおばの足音",
+    "translated_name": "Verdure Footsteps"
+  },
+  "gaga": {
+    "song_name": "ギャ・ギャ・ギャ・ギャラクシー！",
+    "translated_name": "Ga Ga Ga Galaxy!"
+  },
+  "hhwn": {
+    "song_name": "悲報！ワイ！ニート！",
+    "translated_name": "HEY! HO! NEET!"
   }
 }
