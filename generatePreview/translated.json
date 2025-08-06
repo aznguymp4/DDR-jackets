@@ -194,7 +194,7 @@
     "basename": "suke",
     "searchable_name": "すかーれっとけいさつのげっとーぱとろーる24じ",
     "romanized_name": "Scarlet Police on Ghetto Patrol in 24 Hours",
-    "translated_name": "Scarlet Police: Ghetto Patrol in 24 hours",
+    "translated_name": "Scarlet Police on Ghetto Patrol",
     "alternate_name": "TouhouScarletPolice"
   },
   "rosi": {
@@ -1395,7 +1395,7 @@
     "song_name": "我ら完全無敵のアイドル!!",
     "basename": "ware",
     "searchable_name": "われらかんざんむてきのいどる",
-    "romanized_name": "Warera kanzen muteki no idol",
+    "romanized_name": "WE'RE PERFECT INVINCIBLE IDOLS!!",
     "alternate_name": "Oshi no ko/推しの子"
   },
   "setu": {
@@ -2322,9 +2322,6 @@
     "romanized_name": "Rin To Shite Saku Hana no Gotoku",
     "alternate_name": "NADESHIKO ROCK/撫子ロック"
   },
-
-
-
   "june": {
     "song_name": "10年桜",
     "translated_name": "Decade Old Cherry Blossoms"
@@ -2340,18 +2337,6 @@
   "sisit": {
     "song_name": "うれしい！ たのしい！ 大好き！",
     "translated_name": "Happy! Fun! I Love You!"
-  },
-  "odop": {
-    "song_name": "おどるポンポコリン",
-    "translated_name": "Dancing Pompokorin"
-  },
-  "odor": {
-    "song_name": "おどるポンポコリン",
-    "translated_name": "Dancing Pompokorin"
-  },
-  "odor2": {
-    "song_name": "おどるポンポコリン",
-    "translated_name": "Dancing Pompokorin"
   },
   "ponp": {
     "song_name": "おどるポンポコリン",
@@ -2513,14 +2498,6 @@
     "song_name": "僕は君に恋をした",
     "translated_name": "I fell in love with you"
   },
-  "akue": {
-    "song_name": "創聖のアクエリオン",
-    "translated_name": "Genesis of Aquarion"
-  },
-  "aqua": {
-    "song_name": "創聖のアクエリオン",
-    "translated_name": "Genesis of Aquarion"
-  },
   "wasr": {
     "song_name": "勿忘",
     "translated_name": "Of course I forgot"
@@ -2640,14 +2617,6 @@
   "byos": {
     "song_name": "秒針を噛む",
     "translated_name": "Biting the second hand"
-  },
-  "gurr": {
-    "song_name": "空色デイズ",
-    "translated_name": "Sky Blue Days"
-  },
-  "sora": {
-    "song_name": "空色デイズ",
-    "translated_name": "Sky Blue Days"
   },
   "gren": {
     "song_name": "紅蓮華",
@@ -2807,6 +2776,97 @@
   },
   "kksy": {
     "song_name": "覚悟せよ！エンタンメ～ン ～より身の切り売り自暴自棄版～",
-    "translated_name": "Get Ready! Entanmen: Total Breakdown Mix"
-  }
+    "translated_name": "Get Ready! Entanmen"
+  },
+  "kawi": {
+    "song_name": "可愛くてごめん",
+    "translated_name": "Sorry for being cute"
+  },
+  "zatt": {
+    "song_name": "雑踏、僕らの街",
+    "translated_name": "The Crowd, Our City"
+  },
+
+
+
+
+  "akue": {
+    "song_name": "創聖のアクエリオン",
+    "translated_name": "Genesis of Aquarion",
+    "caption":"from DDR GRAND PRIX"
+  },
+  "aqua": {
+    "song_name": "創聖のアクエリオン",
+    "translated_name": "Genesis of Aquarion",
+    "caption":"from DDR MUSIC FIT"
+  },
+  "odop": {
+    "song_name": "おどるポンポコリン",
+    "translated_name": "Dancing Pompokorin",
+    "caption":"from DDR GRAND PRIX (CS, 2022)"
+  },
+  "odor": {
+    "song_name": "おどるポンポコリン",
+    "translated_name": "Dancing Pompokorin",
+    "caption":"from DDR FESTIVAL"
+  },
+  "odor2": {
+    "song_name": "おどるポンポコリン",
+    "translated_name": "Dancing Pompokorin",
+    "caption":"from DDR MUSIC FIT"
+  },
+  "gurr": {
+    "song_name": "空色デイズ",
+    "translated_name": "Sky Blue Days",
+    "caption":"from DDR MUSIC FIT"
+  },
+  "sora": {
+    "song_name": "空色デイズ",
+    "translated_name": "Sky Blue Days",
+    "caption":"from DDR GRAND PRIX"
+  },
+
+  "spar"  :{"caption":"from DDR A20 PLUS"},
+  "spar0" :{"caption":"from DDR HOTTEST PARTY"},
+  "bdow"  :{"caption":"from DDR WORLD"},
+  "bdow0" :{"caption":"from DDR HOTTEST PARTY"},
+  "capt"  :{"caption":"from DDR 3rdMIX"},
+  "capt2" :{"caption":"from DDR X2"},
+  "chop"  :{"caption":"from DDR A"},
+  "xchoc" :{"caption":"from DDR ULTRAMIX4"},
+  "curr"  :{"caption":"from DDR A3"},
+  "wcurr" :{"caption":"from DDR (CS, 2010)"},
+  "damd"  :{"caption":"from DDR 3rdMIX"},
+  "damd2" :{"caption":"from DDR X2"},
+  "elrt"  :{"caption":"from DDR WORLD"},
+  "welri" :{"caption":"from DDR II"},
+  "getu"  :{"caption":"from DDR 2ndMIX (Original Cut)"},
+  "gtup"  :{"caption":"from DDR Solo BASS MIX (Solo Cut)"},
+  "ifly"  :{"caption":"from DDR A20 PLUS"},
+  "ifly0" :{"caption":"from DDR HOTTEST PARTY"},
+  "ifyo"  :{"caption":"from DDR 2ndMIX"},
+  "ifyo2" :{"caption":"from DDR X2"},
+  "ngon"  :{"caption":"from DDR WORLD"},
+  "ngon0" :{"caption":"from DDR HOTTEST PARTY"},
+  "noma"  :{"caption":"from DDR WORLD"},
+  "noma0" :{"caption":"from HOTTEST PARTY2"},
+  "ojiy"  :{"caption":"from DDR GRAND PRIX (CS, 2025)"},
+  "xjiya" :{"caption":"from DDR ULTRAMIX2 (CS, 2004)"},
+  "jena"  :{"caption":"from DDR A3"},
+  "wstil" :{"caption":"from DDR (CS, 2010)"},
+  "rapp"  :{"caption":"from DS FUSION"},
+  "urapp" :{"caption":"from DDR UNIVERSE"},
+  "mine"  :{"caption":"from DDR ULTRAMIX2"},
+  "mine2" :{"caption":"from DDR 2014"},
+  "tame"  :{"caption":"from DDR A3"},
+  "wtame" :{"caption":"from DDR (CS, 2010)"},
+  "skan"  :{"caption":"from DDR SuperNOVA2 (CS, NA)"},
+  "xskan" :{"caption":"from DS Unleased3"},
+  "pomp"  :{"caption":"from DDR 5thMIX"},
+  "weca"  :{"caption": "from DDR A20 PLUS"},
+  "weca0" :{"caption": "from DDR HOTTEST PARTY2"},
+  
+  "sdyna": {"caption": "Original Vocals and Charts"},
+  "dyna": {"caption": "New Vocals, Original Charts"},
+  "dyna4": {"caption": "New Vocals, CS-Exclusive Charts"}
 }

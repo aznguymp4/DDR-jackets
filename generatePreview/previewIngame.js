@@ -96,8 +96,10 @@ const shockIcon = new Image()
 shockIcon.onload = () => {
 	let generated = 0
 	jackets
+	.filter(j=>j.startsWith('zatt'))
 	// .filter(j=>splitBPMdata[j.split('_jk')[0]])
 	// .filter(j=>translatedTitles[j.split('_jk')[0]])
+	// .filter(j=>translatedTitles[j.split('_jk')[0]]?.caption)
 	// .filter(j=>translatedTitles[j.split('_jk')[0]]?.romanized_name?.length > 28)
 	.map(jacketFileName => {
 		const basename = jacketFileName.split('_jk')[0]
@@ -120,17 +122,21 @@ shockIcon.onload = () => {
 				ctx.fillRect(0, 164, 192, 62)
 			}
 			if(romanized) { // Translated title (if available)
-				const title = romanized.translated_name || romanized.romanized_name
+				const title = romanized.translated_name || romanized.romanized_name || ''
+				const caption = romanized.caption
 				ctx.textAlign = 'center'
-				ctx.fillStyle = '#0ff'
+				ctx.fillStyle = romanized.caption? '#ff0':'#0ff'
 				const fontSize =
-					title.length>40 ? 12 :
-					title.length>30 ? 14 :
-					title.length>25 ? 15 :
-					title.length>20 ? 16 :
+					(title+caption).length>40 ? 12 :
+					(title+caption).length>30 ? 14 :
+					(title+caption).length>25 ? 15 :
+					(title+caption).length>20 ? 16 :
 														18
 				ctx.font = `bold ${fontSize}px FullerSansDT, Segoe UI`
-				const wrappedLines = wrap(ctx, title, ctx.font, 192, {lineClamp: 2})
+				const titleLines = wrap(ctx, title, ctx.font, 192, {lineClamp: 2})
+				const wrappedLines = caption
+				? titleLines.concat(caption)
+				: titleLines
 				
 				if(wrappedLines.length===1) {
 					ctx.textBaseline = 'middle'
@@ -142,7 +148,9 @@ shockIcon.onload = () => {
 					)
 				} else {
 					ctx.textBaseline = 'alphabetic'
+					ctx.fillStyle = romanized.caption && !title? '#ff0':'#0ff'
 					ctx.fillText(wrappedLines[0], 96, 203 - (splitBPM?25:0), 192)
+					ctx.fillStyle = romanized.caption? '#ff0':'#0ff'
 					ctx.textBaseline = 'top'
 					ctx.fillText(wrappedLines[1], 96, 202.5 - (splitBPM?25:0), 192)
 				}
