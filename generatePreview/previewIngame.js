@@ -96,7 +96,7 @@ const shockIcon = new Image()
 shockIcon.onload = () => {
 	let generated = 0
 	jackets
-	.filter(j=>j.startsWith('zatt'))
+	// .filter(j=>j.startsWith('zatt'))
 	// .filter(j=>splitBPMdata[j.split('_jk')[0]])
 	// .filter(j=>translatedTitles[j.split('_jk')[0]])
 	// .filter(j=>translatedTitles[j.split('_jk')[0]]?.caption)
@@ -122,6 +122,9 @@ shockIcon.onload = () => {
 				ctx.fillRect(0, 164, 192, 62)
 			}
 			if(romanized) { // Translated title (if available)
+				// ctx.fillStyle = '#00ff0050'
+				// ctx.fillRect(0,192,192,23)
+
 				const title = romanized.translated_name || romanized.romanized_name || ''
 				const caption = romanized.caption
 				ctx.textAlign = 'center'
@@ -131,17 +134,25 @@ shockIcon.onload = () => {
 					(title+caption).length>30 ? 14 :
 					(title+caption).length>25 ? 15 :
 					(title+caption).length>20 ? 16 :
-														18
+					18
 				ctx.font = `bold ${fontSize}px FullerSansDT, Segoe UI`
 				const titleLines = wrap(ctx, title, ctx.font, 192, {lineClamp: 2})
-				const wrappedLines = caption
+				const wrappedLines = (caption
 				? titleLines.concat(caption)
-				: titleLines
+				: titleLines).filter(Boolean)
 				
 				if(wrappedLines.length===1) {
 					ctx.textBaseline = 'middle'
+					const renderTxt = wrappedLines.join('').trim()
+					
+					let size = 24
+					ctx.font = `bold ${size}px FullerSansDT, Segoe UI`
+					while (ctx.measureText(renderTxt).width > 190) {
+						size -= 0.25
+						ctx.font = `bold ${size}px FullerSansDT, Segoe UI`
+					}
 					ctx.fillText(
-						wrappedLines.join(''),
+						renderTxt,
 						96,
 						207 - (splitBPM?28:0),
 						192
@@ -210,17 +221,17 @@ shockIcon.onload = () => {
 			}
 
 			// Song length
-			ctx.fillStyle = isLongSong? '#ed4245' : '#fff'
-			ctx.strokeStyle = isLongSong? '#fff' : '#000'
+			ctx.fillStyle = isLongSong? '#ff5d5d' : '#fff'
+			ctx.strokeStyle = '#000'
 			ctx.textAlign = 'center'
 			ctx.lineJoin = 'round'
-			ctx.lineWidth = 4
+			ctx.lineWidth = 6
 			{
 				const xPos = shrinkJacket? 207 : 215
 				if(isLongSong) {
 					ctx.font = 'bold 14px Sans'
-					ctx.strokeText(longSongLabel, xPos, 142)
-					ctx.fillText(longSongLabel, xPos, 142)
+					ctx.strokeText(longSongLabel, xPos+2, 144)
+					ctx.fillText(longSongLabel, xPos+2, 144)
 				}
 				ctx.font = 'semibold 18px Sans'
 				ctx.strokeText(lenStr, xPos, 130)

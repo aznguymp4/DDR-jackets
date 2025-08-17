@@ -2826,6 +2826,83 @@
     "caption":"from DDR GRAND PRIX"
   },
 
+  "uch01": {
+    "song_name": "Yin Wei Ai",
+    "translated_name": "因為愛"
+  },
+  "uch03": {
+    "song_name": "Kao Jin Ni",
+    "translated_name": "靠近妳"
+  },
+  "uch04": {
+    "song_name": "Huang Di",
+    "translated_name": "皇帝"
+  },
+  "uch05": {
+    "song_name": "PU GUANG",
+    "translated_name": "曝光"
+  },
+  "uch06": {
+    "song_name": "ZHAO ZI JI",
+    "translated_name": "找自己"
+  },
+  "uch07": {
+    "song_name": "Xia Ri Chu Ti Yan",
+    "translated_name": "夏日初體驗"
+  },
+  "uch08": {
+    "song_name": "TAN CHEN CHI",
+    "translated_name": "貪嗔癡"
+  },
+  "uch09": {
+    "song_name": "Hue Die Fei",
+    "translated_name": "化蝶飛"
+  },
+  "uch10": {
+    "song_name": "Jin Xing Shi",
+    "translated_name": "進行式"
+  },
+  "uch11": {
+    "song_name": "BU LA GE ZHI LIAN",
+    "translated_name": "布拉格之戀"
+  },
+  "uch12": {
+    "song_name": "Shi Jie Zhi You Wo Men",
+    "translated_name": "世界只有我們"
+  },
+  "uch13": {
+    "song_name": "Wan Mei",
+    "translated_name": "玩美"
+  },
+  "uch15": {
+    "song_name": "DI ER SHI",
+    "translated_name": "第二世"
+  },
+  "uch16": {
+    "song_name": "DU ZHAO",
+    "translated_name": "獨照"
+  },
+  "uch17": {
+    "song_name": "FU HUA LUAN SHI",
+    "translated_name": "浮華亂世"
+  },
+  "uch18": {
+    "song_name": "Wo Shi Ni De Shui",
+    "translated_name": "我是你的誰"
+  },
+  "uch19": {
+    "song_name": "CUO ZAI CONG MING",
+    "translated_name": "錯左聰明"
+  },
+  "uch20": {
+    "song_name": "NI BU SHI HAO QING REN",
+    "translated_name": "你不是好情人"
+  },
+  "umum": {
+    "song_name": "ウッーウッーウマウマ(ﾟ∀ﾟ) (Speedcake Remix)",
+    "translated_name": "Caramelldansen"
+  },
+
   "spar"  :{"caption":"from DDR A20 PLUS"},
   "spar0" :{"caption":"from DDR HOTTEST PARTY"},
   "bdow"  :{"caption":"from DDR WORLD"},
@@ -2865,6 +2942,10 @@
   "pomp"  :{"caption":"from DDR 5thMIX"},
   "weca"  :{"caption": "from DDR A20 PLUS"},
   "weca0" :{"caption": "from DDR HOTTEST PARTY2"},
+  "hotl3" :{"caption": "from DDR MUSIC FIT"},
+  "hlim" :{"caption": "from DDR GRAND PRIX (CS, 2023)"},
+  "uhotl" :{"caption": "from DDR UNIVERSE"},
+  "hotl" :{"caption": "from DDR 5thMIX"},
   
   "sdyna": {"caption": "Original Vocals and Charts"},
   "dyna": {"caption": "New Vocals, Original Charts"},
