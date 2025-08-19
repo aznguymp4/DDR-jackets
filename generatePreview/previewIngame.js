@@ -96,9 +96,9 @@ const shockIcon = new Image()
 shockIcon.onload = () => {
 	let generated = 0
 	jackets
-	// .filter(j=>j.startsWith('zatt'))
+	// .filter(j=>j.startsWith('uch') || j.startsWith('kor'))
 	// .filter(j=>splitBPMdata[j.split('_jk')[0]])
-	// .filter(j=>translatedTitles[j.split('_jk')[0]])
+	// .filter(j=>translatedTitles[j.split('_jk')[0]]?.romanized_name)
 	// .filter(j=>translatedTitles[j.split('_jk')[0]]?.caption)
 	// .filter(j=>translatedTitles[j.split('_jk')[0]]?.romanized_name?.length > 28)
 	.map(jacketFileName => {
@@ -122,8 +122,7 @@ shockIcon.onload = () => {
 				ctx.fillRect(0, 164, 192, 62)
 			}
 			if(romanized) { // Translated title (if available)
-				// ctx.fillStyle = '#00ff0050'
-				// ctx.fillRect(0,192,192,23)
+				// ctx.fillStyle = '#00ff0050';ctx.fillRect(0,192,192,23)
 
 				const title = romanized.translated_name || romanized.romanized_name || ''
 				const caption = romanized.caption
@@ -142,10 +141,10 @@ shockIcon.onload = () => {
 				: titleLines).filter(Boolean)
 				
 				if(wrappedLines.length===1) {
-					ctx.textBaseline = 'middle'
+					ctx.textBaseline = 'bottom'
 					const renderTxt = wrappedLines.join('').trim()
 					
-					let size = 24
+					let size = 22
 					ctx.font = `bold ${size}px FullerSansDT, Segoe UI`
 					while (ctx.measureText(renderTxt).width > 190) {
 						size -= 0.25
@@ -154,7 +153,7 @@ shockIcon.onload = () => {
 					ctx.fillText(
 						renderTxt,
 						96,
-						207 - (splitBPM?28:0),
+						217 - (splitBPM?28:0),
 						192
 					)
 				} else {
