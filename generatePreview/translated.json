@@ -2580,7 +2580,11 @@
   },
   "akao": {
     "song_name": "朱と碧のランページ",
-    "translated_name": "Vermilion and Blue Rampage"
+    "translated_name": "Red and Blue Rampage"
+  },
+  "akao2": {
+    "song_name": "朱と碧のランページ",
+    "translated_name": "Red and Blue Rampage"
   },
   "ayum": {
     "song_name": "歩み",
@@ -2902,6 +2906,18 @@
     "song_name": "ウッーウッーウマウマ(ﾟ∀ﾟ) (Speedcake Remix)",
     "translated_name": "Caramelldansen"
   },
+  "shiz1": {
+    "song_name": "雫",
+    "translated_name": "Shizuku(Drop)"
+  },
+  "kjnf2": {
+    "song_name": "カジノファイヤーことみちゃん",
+    "translated_name": "Casino fire Kotomi-chan"
+  },
+  "rmrm2": {
+    "song_name": "リメンバーリメンバー",
+    "romanized_name": "Remember Remember"
+  },
 
   "spar"  :{"caption":"from DDR A20 PLUS"},
   "spar0" :{"caption":"from DDR HOTTEST PARTY"},
@@ -2940,27 +2956,27 @@
   "tame"  :{"caption":"from DDR A3"},
   "wtame" :{"caption":"from DDR (CS, 2010)"},
   "skan"  :{"caption":"from DDR SuperNOVA2 (CS, NA)"},
-  "xskan" :{"caption":"from DS Unleased3"},
+  "xskan" :{"caption":"from DS Unleashed3"},
   "pomp"  :{"caption":"from DDR 5thMIX"},
-  "weca"  :{"caption": "from DDR A20 PLUS"},
-  "weca0" :{"caption": "from DDR HOTTEST PARTY2"},
-  "hotl3" :{"caption": "from DDR MUSIC FIT"},
-  "hlim" :{"caption": "from DDR GRAND PRIX (CS, 2023)"},
-  "uhotl" :{"caption": "from DDR UNIVERSE"},
-  "hotl" :{"caption": "from DDR 5thMIX"},
-  "infe" :{"caption": "from DDR HOTTEST PARTY"},
-  "wdisc":{"caption": "from DS ft. Disney's RAVE"},
-  "ialv":{"caption": "from DDR Solo BASS MIX"},
-  "aliv":{"caption": "from DDR Solo 2000"},
-  "imco":{"caption": "Original; from DDR HOTTEST PARTY3"},
-  "uimco":{"caption": "Cover; from DDR UNIVERSE3"},
-  "iwil":{"caption": "Original; from DS EuroMIX"},
-  "iwsu":{"caption": "Cover; from DDR EXTREME2"},
-  "kunc":{"caption": "Original; from DS Max"},
-  "kung":{"caption": "Cover; from DDR 1st"},
+  "weca"  :{"caption":"from DDR A20 PLUS"},
+  "weca0" :{"caption":"from DDR HOTTEST PARTY2"},
+  "hotl3" :{"caption":"from DDR MUSIC FIT"},
+  "hlim"  :{"caption":"from DDR GRAND PRIX (CS, 2023)"},
+  "uhotl" :{"caption":"from DDR UNIVERSE"},
+  "hotl"  :{"caption":"from DDR 5thMIX"},
+  "infe"  :{"caption":"from DDR HOTTEST PARTY"},
+  "wdisc" :{"caption":"from DS ft. Disney's RAVE"},
+  "ialv"  :{"caption":"from DDR Solo BASS MIX"},
+  "aliv"  :{"caption":"from DDR Solo 2000"},
+  "imco"  :{"caption":"Original; from DDR HOTTEST PARTY3"},
+  "uimco" :{"caption":"Cover; from DDR UNIVERSE3"},
+  "iwil"  :{"caption":"Original; from DS EuroMIX"},
+  "iwsu"  :{"caption":"Cover; from DDR EXTREME2"},
+  "kunc"  :{"caption":"Original; from DS Max"},
+  "kung"  :{"caption":"Cover; from DDR 1st"},
   
-  "maxp0":{"caption": "DDR EXTREME CS-Exclusive Chart"},
-  "sdyna": {"caption": "Original Vocals and Charts"},
-  "dyna": {"caption": "New Vocals, Original Charts"},
-  "dyna4": {"caption": "New Vocals, CS-Exclusive Charts"}
+  "maxp0" :{"caption": "DDR EXTREME CS-Exclusive Chart"},
+  "sdyna" :{"caption": "Original Vocals and Charts"},
+  "dyna"  :{"caption": "New Vocals, Original Charts"},
+  "dyna4" :{"caption": "New Vocals, CS-Exclusive Charts"}
 }
