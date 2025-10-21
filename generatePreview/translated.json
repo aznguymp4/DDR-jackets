@@ -2912,11 +2912,15 @@
   },
   "kjnf2": {
     "song_name": "カジノファイヤーことみちゃん",
-    "translated_name": "Casino fire Kotomi-chan"
+    "translated_name": "Casino Fire Kotomi-chan"
   },
   "rmrm2": {
     "song_name": "リメンバーリメンバー",
     "romanized_name": "Remember Remember"
+  },
+  "meik": {
+    "song_name": "迷宮のロンド",
+    "romanized_name": "Rondo of the Labyrinth"
   },
 
   "spar"  :{"caption":"from DDR A20 PLUS"},

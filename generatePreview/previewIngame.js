@@ -199,7 +199,8 @@ shockIcon.onload = () => {
 					// })), xPos, 205)
 					drawMultiColorTextCentered(ctx, diffs.map(diff => ({text:diff,fillStyle:diffColors[diff]})), xPos, 200, columnWidth-4)
 
-					ctx.font = 'bold 16px Sans'
+					ctx.font = `800 18px Mikado`
+					// ctx.font = `bold 16px Sans`
 					if(diffs.length === 1) {
 						ctx.fillStyle = diffColors[`${diffs[0]}pastel`]
 					} else {
