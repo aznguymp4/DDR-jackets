@@ -969,7 +969,7 @@
     "song_id": "DOd9bIqddQ91qbQI1bdbbDi1lqPObo8l",
     "song_name": "ハイテックトキオ",
     "basename": "hitk",
-    "romanized_name": "Hi Tech Tokio"
+    "romanized_name": "Hi-tech Tokio"
   },
   "sana": {
     "song_id": "doIiQl6oDPP6i9qobqoobblPQqPiI9bD",
@@ -1812,7 +1812,8 @@
     "basename": "shiz",
     "searchable_name": "しずく",
     "romanized_name": "Shizuku",
-    "translated_name": "Shizuku(Drop)"
+    "translated_name": "Shizuku(Drop)",
+    "caption": "from DDR X3 vs 2ndMIX"
   },
   "iaru": {
     "song_id": "Oq900IIl1Ob8qoIPqDP0PD6blbqIqlP1",
@@ -2081,7 +2082,8 @@
     "song_name": "混乱少女♥そふらんちゃん!!",
     "basename": "konr",
     "searchable_name": "こんらんしょうじょそふらんちゃん",
-    "romanized_name": "Konran Shoujo Soflan Chan"
+    "romanized_name": "Konran Shoujo Soflan Chan",
+    "translated_name": "Confusion Girl ♥ Soflan-Chan!!"
   },
   "tige": {
     "song_id": "Q9l0i6DPO08obldq101ldDioiqdIDqlq",
@@ -2340,7 +2342,8 @@
   },
   "ponp": {
     "song_name": "おどるポンポコリン",
-    "translated_name": "Dancing Pompokorin"
+    "translated_name": "Dancing Pompokorin",
+    "caption":"from DDR 5thMIX"
   },
   "ycfy": {
     "song_name": "きみもとべるよ！ (ピーターパン)",
@@ -2908,7 +2911,8 @@
   },
   "shiz1": {
     "song_name": "雫",
-    "translated_name": "Shizuku(Drop)"
+    "translated_name": "Shizuku(Drop)",
+    "caption": "from DDR MUSIC FIT"
   },
   "kjnf2": {
     "song_name": "カジノファイヤーことみちゃん",
@@ -2921,6 +2925,14 @@
   "meik": {
     "song_name": "迷宮のロンド",
     "romanized_name": "Rondo of the Labyrinth"
+  },
+  "renk": {
+    "song_name": "恋繋エピローグ",
+    "romanized_name": "Love-tied Epilogue"
+  },
+  "sans2": {
+    "song_name": "チルノのパーフェクトさんすう学園",
+    "romanized_name": "Cirno's Perfect Math Academy"
   },
 
   "spar"  :{"caption":"from DDR A20 PLUS"},
