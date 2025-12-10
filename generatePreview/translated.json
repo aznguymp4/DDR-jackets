@@ -2219,6 +2219,14 @@
     "romanized_name": "Hou",
     "alternate_name": "Otori/Ootori/Phoenix/おおとり"
   },
+  "houu2": {
+    "song_id": "Dbl69I9bO9qo6iidPbPPPD11boQPqi8q",
+    "song_name": "鳳 (Five Flares Mix)",
+    "basename": "houu2",
+    "searchable_name": "ほうfiveflaresmix",
+    "romanized_name": "Hou (Five Flares Mix)",
+    "alternate_name": "Otori/Ootori/Phoenix/おおとり"
+  },
   "kakx": {
     "song_id": "qIqqdd1Odqi1Iiolq9qqPOi0bPPld8Pb",
     "song_name": "革命 (X-Special)",
@@ -2383,19 +2391,11 @@
   },
   "anat": {
     "song_name": "アナタボシ",
-    "translated_name": "You"
+    "translated_name": "You're My Star"
   },
   "iasw3": {
     "song_name": "イッツ・ア・スモールワールド",
     "translated_name": "It's a Small World"
-  },
-  "oron": {
-    "song_name": "オリオンをなぞる",
-    "translated_name": "Tracing Orion"
-  },
-  "oron2": {
-    "song_name": "オリオンをなぞる",
-    "translated_name": "Tracing Orion"
   },
   "hone": {
     "song_name": "キューティーハニー",
@@ -2580,14 +2580,6 @@
   "jupi": {
     "song_name": "木星～組曲『惑星』より",
     "translated_name": "Jupiter: From the Suite The Planets"
-  },
-  "akao": {
-    "song_name": "朱と碧のランページ",
-    "translated_name": "Red and Blue Rampage"
-  },
-  "akao2": {
-    "song_name": "朱と碧のランページ",
-    "translated_name": "Red and Blue Rampage"
   },
   "ayum": {
     "song_name": "歩み",
@@ -2800,7 +2792,7 @@
   "akue": {
     "song_name": "創聖のアクエリオン",
     "translated_name": "Genesis of Aquarion",
-    "caption":"from DDR GRAND PRIX"
+    "caption":"from DDR GRAND PRIX (2022)"
   },
   "aqua": {
     "song_name": "創聖のアクエリオン",
@@ -2810,7 +2802,7 @@
   "odop": {
     "song_name": "おどるポンポコリン",
     "translated_name": "Dancing Pompokorin",
-    "caption":"from DDR GRAND PRIX (CS, 2022)"
+    "caption":"from DDR GRAND PRIX (2022)"
   },
   "odor": {
     "song_name": "おどるポンポコリン",
@@ -2830,7 +2822,7 @@
   "sora": {
     "song_name": "空色デイズ",
     "translated_name": "Sky Blue Days",
-    "caption":"from DDR GRAND PRIX"
+    "caption":"from DDR GRAND PRIX (2023)"
   },
 
   "uch01": {
@@ -2938,6 +2930,26 @@
     "song_name": "東方妖々夢 ULTIMATE MEDLEY",
     "romanized_name": "Touhou Youyoumu: Ultimate Medley"
   },
+  "akao": {
+    "song_name": "朱と碧のランページ",
+    "translated_name": "Red and Blue Rampage",
+    "caption": "Original; from DDR GRAND PRIX (2025)"
+  },
+  "akao2": {
+    "song_name": "朱と碧のランページ",
+    "translated_name": "Red and Blue Rampage",
+    "caption": "Cover; from DDR WORLD"
+  },
+  "oron": {
+    "song_name": "オリオンをなぞる",
+    "translated_name": "Tracing Orion",
+    "caption": "Original; from DDR 2013"
+  },
+  "oron2": {
+    "song_name": "オリオンをなぞる",
+    "translated_name": "Tracing Orion",
+    "caption": "Cover; from DDR GRAND PRIX (2022)"
+  },
 
   "spar"  :{"caption":"from DDR A20 PLUS"},
   "spar0" :{"caption":"from DDR HOTTEST PARTY"},
@@ -2948,7 +2960,7 @@
   "chop"  :{"caption":"from DDR A"},
   "xchoc" :{"caption":"from DDR ULTRAMIX4"},
   "curr"  :{"caption":"from DDR A3"},
-  "wcurr" :{"caption":"from DDR (CS, 2010)"},
+  "wcurr" :{"caption":"from DDR (2010)"},
   "damd"  :{"caption":"from DDR 3rdMIX"},
   "damd2" :{"caption":"from DDR X2"},
   "elrt"  :{"caption":"from DDR WORLD"},
@@ -2963,10 +2975,10 @@
   "ngon0" :{"caption":"from DDR HOTTEST PARTY"},
   "noma"  :{"caption":"from DDR WORLD"},
   "noma0" :{"caption":"from HOTTEST PARTY2"},
-  "ojiy"  :{"caption":"from DDR GRAND PRIX (CS, 2025)"},
-  "xjiya" :{"caption":"from DDR ULTRAMIX2 (CS, 2004)"},
+  "ojiy"  :{"caption":"from DDR GRAND PRIX (2025)"},
+  "xjiya" :{"caption":"from DDR ULTRAMIX2 (2004)"},
   "jena"  :{"caption":"from DDR A3"},
-  "wstil" :{"caption":"from DDR (CS, 2010)"},
+  "wstil" :{"caption":"from DDR (2010)"},
   "saya"  :{"caption":"from DDR A3"},
   "wsaya" :{"caption":"from DDR II"},
   "rapp"  :{"caption":"from DS FUSION"},
@@ -2974,14 +2986,14 @@
   "mine"  :{"caption":"from DDR ULTRAMIX2"},
   "mine2" :{"caption":"from DDR 2014"},
   "tame"  :{"caption":"from DDR A3"},
-  "wtame" :{"caption":"from DDR (CS, 2010)"},
-  "skan"  :{"caption":"from DDR SuperNOVA2 (CS, NA)"},
+  "wtame" :{"caption":"from DDR (2010)"},
+  "skan"  :{"caption":"from DDR SuperNOVA2 (NA)"},
   "xskan" :{"caption":"from DS Unleashed3"},
   "pomp"  :{"caption":"from DDR 5thMIX"},
   "weca"  :{"caption":"from DDR A20 PLUS"},
   "weca0" :{"caption":"from DDR HOTTEST PARTY2"},
   "hotl3" :{"caption":"from DDR MUSIC FIT"},
-  "hlim"  :{"caption":"from DDR GRAND PRIX (CS, 2023)"},
+  "hlim"  :{"caption":"from DDR GRAND PRIX (2023)"},
   "uhotl" :{"caption":"from DDR UNIVERSE"},
   "hotl"  :{"caption":"from DDR 5thMIX"},
   "infe"  :{"caption":"from DDR HOTTEST PARTY"},
