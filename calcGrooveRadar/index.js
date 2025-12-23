@@ -80,12 +80,16 @@ class SongRadars {
 	/** @param {RadarData} bn */ set CSP(rd) {this._CSP = rd} /** @param {RadarData} bn */ set CDP(rd) {this._CDP = rd}
 }
 
+// const ssqDir = 'D:\\Games\\BEMANI\\DDR\\MDX-001-2025061002\\MDX-001-2025061002\\contents\\data\\mdb_apx\\ssq'
 const ssqDir = 'D:/Games/BEMANI/DDR/GitDDR/game_files/contents/data/mdb_apx/ssq'
 const SONGS = {}
 // SONGS = { <string>"basename" : <SongRadars> ,... }
 
 const csvExportStr = ['basename,songLengthMs,'+Object.keys(difficulties).join(',')]
-const files = readdirSync(ssqDir).filter(f=>f.endsWith('.ssq')).sort((a,b) => a.localeCompare(b))
+const files = readdirSync(ssqDir)
+.filter(f=>f.endsWith('.ssq'))
+// .filter(f=>['thnk'].includes(f.replace('.ssq','')))
+.sort((a,b) => a.localeCompare(b))
 
 let ssqParseCt = 0
 files.map(fileName => {
