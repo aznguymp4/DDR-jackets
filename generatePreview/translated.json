@@ -851,8 +851,12 @@
     "song_name": "打打打打打打打打打打",
     "basename": "dddd",
     "searchable_name": "だだだだだだだだだだ",
-    "translated_name": "DADADADADADADADADADA (Strike x10)",
+    "translated_name": "Dadadadadadadadadada (Strike x10)",
     "romanized_name": "Dadadadadadadadadada"
+  },
+  "dddd2": {
+    "song_name": "打打打打打打打打打打 (にじさんじダンス部 ver.)",
+    "translated_name": "Dadadadadadadadadada (Nijisanji Dance Club ver.)"
   },
   "pure": {
     "song_id": "dDlDPddq08iD8IOb9I1PbODP9696966D",
@@ -2784,6 +2788,10 @@
   "zatt": {
     "song_name": "雑踏、僕らの街",
     "translated_name": "The Crowd, Our City"
+  },
+  "dind2": {
+    "song_name": "Din Don Dan (にじさんじダンス部 ver.)",
+    "translated_name": "Din Don Dan (Nijisanji Dance Club ver.)"
   },
 
 
