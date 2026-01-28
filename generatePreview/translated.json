@@ -2631,7 +2631,7 @@
   },
   "senc": {
     "song_name": "終焔のClaudia",
-    "translated_name": "Claudia of the End of the Flame"
+    "translated_name": "Claudia of the Final Flame"
   },
   "shuu": {
     "song_name": "羞恥心",
@@ -2937,6 +2937,22 @@
   "toul": {
     "song_name": "東方妖々夢 ULTIMATE MEDLEY",
     "romanized_name": "Touhou Youyoumu: Ultimate Medley"
+  },
+  "wafu": {
+    "song_name": "和風インザ洋風",
+    "romanized_name": "Japanese Style in Western Style"
+  },
+  "tema": {
+    "song_name": "天弓ノ舞",
+    "romanized_name": "Dance of the Heavenly Bow"
+  },
+  "akne": {
+    "song_name": "アキネイション",
+    "romanized_name": "Aki Nation"
+  },
+  "hane": {
+    "song_name": "羽根亡き少女唄",
+    "romanized_name": "Wingless Girl's Song"
   },
   "akao": {
     "song_name": "朱と碧のランページ",

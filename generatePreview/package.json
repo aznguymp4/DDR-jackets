@@ -9,7 +9,7 @@
   "author": "aznguy.mp4",
   "license": "ISC",
   "dependencies": {
-    "canvas": "^2.11.2",
+    "canvas": "^3.2.1",
     "webp-wasm": "^1.0.6"
   }
 }
