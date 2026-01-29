@@ -96,7 +96,7 @@ const shockIcon = new Image()
 shockIcon.onload = () => {
 	let generated = 0
 	jackets
-	// .filter(j=>j.startsWith('uch') || j.startsWith('kor'))
+	// .filter(j=>j.startsWith('xcall'))
 	// .filter(j=>splitBPMdata[j.split('_jk')[0]])
 	// .filter(j=>translatedTitles[j.split('_jk')[0]]?.romanized_name)
 	// .filter(j=>translatedTitles[j.split('_jk')[0]]?.caption)
@@ -221,19 +221,19 @@ shockIcon.onload = () => {
 			}
 
 			// Song length
-			ctx.fillStyle = isLongSong? '#ff5d5d' : '#fff'
-			ctx.strokeStyle = '#000'
-			ctx.textAlign = 'center'
-			ctx.lineJoin = 'round'
-			ctx.lineWidth = 6
 			{
-				const xPos = shrinkJacket? 207 : 215
+				ctx.fillStyle = isLongSong? '#ff5d5d' : '#fff'
+				ctx.strokeStyle = '#000'
+				ctx.textAlign = 'center'
+				ctx.lineJoin = 'round'
+				ctx.lineWidth = 6
+				const xPos = shrinkJacket? 206.5 : 214.5
 				if(isLongSong) {
 					ctx.font = 'bold 14px Sans'
 					ctx.strokeText(longSongLabel, xPos+2, 144)
 					ctx.fillText(longSongLabel, xPos+2, 144)
 				}
-				ctx.font = 'semibold 18px Sans'
+				ctx.font = 'bold 18px Sans'
 				ctx.strokeText(lenStr, xPos, 130)
 				ctx.fillText(lenStr, xPos, 130)
 			}
