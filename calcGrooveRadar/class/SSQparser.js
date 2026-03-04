@@ -334,6 +334,7 @@ class SSQparser {
 		const stats = {
 			notes: 0,     // Note count (jumps count as 2 notes)
 			steps: 0,     // Step count (jumps count as 1 step)
+			stepsInFirst45sec: 0,
 			shocks: 0,    // Shock arrows
 			jumps: 0,     // Simultaneous arrows
 			freeze: 0,    // amount of "freezeStart"s
@@ -362,7 +363,11 @@ class SSQparser {
 				const extraType = eventExtraData[1]
 				eventExtraData = eventExtraData.slice(2)
 
-				if((extraType & 1) !== 0) { event.extra = ['freezeEnd']; stats.steps-- }
+				if((extraType & 1) !== 0) { event.extra = ['freezeEnd']; stats.steps--; 
+					if(event.timestamp <= 45000) {
+						stats.stepsInFirst45sec--
+					}
+				}
 				if((extraType &~1) !== 0) throw new Error(`Unknown extra event: ${extraType}`);
 			}
 
@@ -382,6 +387,9 @@ class SSQparser {
 					break;
 			}
 			stats.steps++
+			if(event.timestamp <= 45000) {
+				stats.stepsInFirst45sec++
+			}
 			event.notes = notes
 			events.push(event)
 		}

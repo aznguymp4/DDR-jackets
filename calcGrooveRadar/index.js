@@ -22,6 +22,7 @@ const difficulties = {
 	EDP: 0x0318, // Double - Expert (aka Heavy)
 	CDP: 0x0618  // Double - Challenge
 }
+
 class RadarData {
 	constructor() {
 		this._STREAM = 0
@@ -126,6 +127,7 @@ files.map(fileName => {
 			const difficulty = noteEvents.chartType
 			if(!difficulties[difficulty]) return
 			const stats = noteEvents.stats
+			// process.stdout.write(`.${stats.stepsInFirst45sec}\t${basename}\t${difficulty}`)
 			const noteArr = noteEvents.events.sort((a,b)=>a.timestamp-b.timestamp)
 			const radarData = songRadars[difficulty]
 
