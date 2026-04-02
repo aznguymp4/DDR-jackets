@@ -2101,7 +2101,7 @@
     "song_name": "恋する☆宇宙戦争っ!!",
     "basename": "kouc",
     "searchable_name": "こいするうちゅうせんそうっ",
-    "romanized_name": "Koisuru(Love is a) Space War!!",
+    "romanized_name": "Love is The Space War!!",
     "alternate_name": "Love is a Space War/Space Prim/宇宙戦争"
   },
   "bere": {
@@ -2961,6 +2961,30 @@
   "kare": {
     "song_name": "華麗なる！音戯探偵ひなビタ♫",
     "romanized_name": "The Great Otogi Tantei-HinaBitter"
+  },
+  "boeg": {
+    "song_name": "僕の気持ちを描く",
+    "romanized_name": "Depicting My Feelings"
+  },
+  "spch": {
+    "song_name": "スペクター・チェイサー",
+    "romanized_name": "Specter Chaser"
+  },
+  "tktk": {
+    "song_name": "ちくたく2ちく2ぱ",
+    "romanized_name": "Ticktack 2 Tick 2 Pa"
+  },
+  "naqu": {
+    "song_name": "謎解き☆クイーン",
+    "romanized_name": "Riddle-Solving ☆ Queen"
+  },
+  "nant": {
+    "song_name": "なんてシュペール",
+    "romanized_name": "How Super!"
+  },
+  "reci": {
+    "song_name": "レシピのリドル",
+    "romanized_name": "Recipe Riddle"
   },
   "akao": {
     "song_name": "朱と碧のランページ",

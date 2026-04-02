@@ -1,1 +1,0 @@
-for /r %%i in (png\*) do texconv.exe -y -f DXT1 -alpha -o dds %%i
