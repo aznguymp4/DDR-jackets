@@ -108,7 +108,7 @@ shockIcon.onload = () => {
 		const romanized = translatedTitles[basename]
 		const splitBPM = splitBPMdata[basename]
 		const lenStr = formatMilliseconds(grooveData.songLengthMs)
-		const isLongSong = grooveData.songLengthMs > 150_000
+		const isLongSong = grooveData.songLengthMs > 160_000
 		const shrinkJacket = Boolean(splitBPM && romanized)
 
 		const cvs = createCanvas(JACKET_SIZE, JACKET_SIZE)
